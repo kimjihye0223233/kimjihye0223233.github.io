@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>조이병원에 오신 것을 환영합니다.</title>
+     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif+KR" rel="stylesheet">
+      <link rel="stylesheet" href="com.css">
+      <link rel="stylesheet" href="grid.css">
+      <link rel="stylesheet" href="main.css">
+    <style>
+        body, html { -ms-overflow-style:none;}
+        ::-webkit-scrollbar {display: none;}
+        ::-o-scrollbar {display: none;}
+        ::-moz-scrollbar {display: none;}
+        
+    </style>
+    <script src="./js/jquery-1.11.1.js">
+    </script>
+    <script>
+    $(function(){
+      var imgWd = parseInt($(".banBox2 li").width());
+      var imgMar = parseInt($(".banBox2 li").css("margin"));
+      var imgAni = imgWd + imgMar;
+      var intv = setInterval(function(){ lAni(); }, 3000);
+      function lAni(){ $(".imgBox").not(":animated").animate({"margin-left":-imgAni+"px"}, 600, function(){ $(".imgBox li").eq(0).appendTo($(".imgBox")); $(".imgBox").css("margin-left", "0px"); });
+      }
+
+ 
+    $(window).scroll(function(){
+        var scTop = $("body, html").scrollTop(); 
+        if(scTop>=100){
+            $(".hdFrame, #gnb a, .lstBtn span").addClass("on");
+        } else {
+            $(".hdFrame, #gnb a, .lstBtn span").removeClass("on");
+        }
+      });
+    });
+    </script>
+    
+    <script  src="https://maps.googleapis.com/maps/api/js?sensor=false"> 
+    </script>
+<!--
+   
+    구글 지도 API key 발급
+    https://console.cloud.google.com/getting-started?pli=1
+    API및서비스 사용자인증정보 인증키발급
+    
+    </script>
+-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp7KCXNk8Z3PZKDLU0OE0Km76U3PQTCX0&callback=initMap"></script> 
+<!--      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp7KCXNk8Z3PZKDLU0OE0Km76U3PQTCX0&callback=initMap"></script> -->
+
+
+<script> 
+
+//좌표 값을 바꿔서 입력 36.3491563,127.3776857
+
+function initialize() {
+
+  var myLatlng = new google.maps.LatLng(37.6561356, 127.01393570000005);
+
+  var mapOptions = {
+
+    zoom: 17,
+
+    center: myLatlng
+
+  }
+
+  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+ 
+
+  var marker = new google.maps.Marker({
+
+      position: myLatlng,
+
+      map: map,
+
+      title: '조이병원'	  //레이블을 바꿔서 입력
+
+  });
+
+}
+
+ 
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+ </script>
+</head>
+
+<body onload="initialize()">
+<div class="hdFrame"></div>
+<header id="hd">
+    <div class="wrap">
+        <a href="index.html" class="logo">
+        <img src="./img/logo.png" alt="앰블럼">
+        </a>
+        <nav id="gnb">
+            <ul>
+                <li><a href="menu01.html">병원소개</a></li>
+                <li><a href="menu02.html">재활안내</a></li>
+                <li><a href="menu03.html">진료안내</a></li>
+                <li><a href="menu04.html">입원안내</a></li>
+                <li><a href="menu05.html">고객지원</a></li>
+            </ul>
+        </nav>
+        <label for="ck" class="lstBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            </label>
+    </div>
+</header>
+<main id="content">
+    <figure id="vs">
+       <input type="radio" name="raItem" id="ra1" checked>
+       <input type="radio" name="raItem" id="ra2">
+        <ul class="banBox">
+            <li><a href="">
+                    <img src="./img/image1.jpg" alt="안내1">
+                    </a>
+                    </li>
+            <li><a href="">
+                    <img src="./img/image2.jpg" alt="안내2">
+                    </a>
+                    </li>
+        </ul>
+        <ul class="btnBox">
+            <li>
+            <label for="ra1" class="vsbtn active"></label>
+            </li>
+            <li>
+            <label for="ra2" class="vsbtn"></label>
+            </li>
+        </ul>
+    </figure>
+    <div class="page" id="page1">
+        <aside class="page1_side">
+            <h1 class="pageTitle">조이병원</h1>
+            <p class="pageComent">함께 하는 건강한 사회를 위한 조이병원의 약속입니다.</p>
+            <a href="" class="detail"> <span class="hvTxt">조이스토리</span></a>
+        </aside>
+        <div class="banBox2">
+            <ul class="imgBox">
+                <li class="item1">
+                    <h1 class="num">01</h1>
+                    <h2 class="banTitle">소아청소년 재활</h2>
+                    <img src="./img/main_img_1.jpg" alt="">
+                </li>
+                <li class="item2">
+                    <h1 class="num">02</h1>
+                    <h2 class="banTitle">놀이치료</h2>
+                    <img src="./img/main_img_2.jpg" alt="">
+                </li>
+                <li class="item3">
+                    <h1 class="num">03</h1>
+                    <h2 class="banTitle">운동치료</h2>
+                    <img src="./img/main_img_3.jpg" alt="">
+                </li>
+                <li class="item4">
+                    <h1 class="num">04</h1>
+                    <h2 class="banTitle">감각통합치료</h2>
+                    <img src="./img/main_img_4.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page" id="page2">
+        <div class="wrap">
+            <h1 class="pageTitle">
+                치료 프로그램</h1>
+            <p class="pageComent">함께하는 우리 사회를 보다 건강하게 더불어 행복한 일상을 위하여 지켜드리겠습니다.</p>
+            <ul class="lst">
+                <li><a href="">
+                <img src="./img/main_img_1.jpg" alt="소아청소년 재활"></a>
+                <span class="itemTitle">소아청소년 재활</span>
+                </li>
+                <li><a href="">
+                <img src="./img/main_img_2.jpg" alt="놀이치료"></a>
+                <span class="itemTitle">놀이치료</span>
+                </li>
+                <li><a href="">
+                <img src="./img/main_img_3.jpg" alt="운동치료"></a>
+                <span class="itemTitle">운동치료</span>
+                </li>
+                <li><a href="">
+                <img src="./img/main_img_4.jpg" alt="감각통합치료"></a>
+                <span class="itemTitle">감각통합치료</span>
+                </li>
+                <li><a href="">
+                <img src="./img/main_img_5.jpg" alt="장기요양"></a>
+                <span class="itemTitle">장기요양</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--
+    div.page#page3>div.wrap>ul>(li.col12>h3.nTitle+h2.pTitle+p.pContent+p.nDate)+(li.col6*2>h3.nTitle+h2.pTitle+p.nDate)
+    
+    div.page#page4>div.wrap>ul>li*3>a.item1>p.com
+    
+    div.page#page5>div.wrap>ul>li*3>h2.itemTitle+p.itemData
+-->
+    
+    <div class="page" id="page3">
+        <div class="wrap">
+            <ul>
+                <li class="col12 first item1" >
+                    <a href="#" class="box">
+                    <h3 class="nTitle">NOTICE</h3>
+                    <h2 class="pTitle">조이병원 리뉴얼 오픈</h2>
+                    <p class="pContent">조이병원 홈페이지가 새롭게 바뀌었습니다. </p>
+                    <p class="nDate">2019년 1월 1일</p>
+                    </a>
+                    <a href="#" class="box abs" style="padding: 20px">
+                    <img src="./img/main_img_6.jpg" class="thumnail" alt="조이병원 리뉴얼 오픈 썸네일">
+                    <p class="nDate">병동 내부 시설</p>
+                    </a>
+                </li>
+                <li class="col6 first item2">
+                    <a href="#" class="box">
+                    <h3 class="nTitle">NEWLETTER</h3>
+                    <h2 class="pTitle">조이병원 News Letter.1호 (2019년 1월 발행)</h2>
+                    <p class="nDate">2019년 1월 1일</p>
+                    </a>
+                </li>
+                <li class="col6 item3">
+                   <a href="#" class="box">
+                    <h3 class="nTitle">INFORMATION</h3>
+                    <h2 class="pTitle">2019년 비급여 목록</h2>
+                    <p class="nDate">2019년 1월 2일</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="page" id="page4">
+        <div class="wrap">
+            <ul>
+                <li class="col4" first><a href="http://www.naver.com/" class="item1">
+                        <p class="com">조이병원<br>네이버블로그 바로가기</p>
+                    </a></li>
+                <li class="col4"><a href="http://www.facebook.com/" class="item2">
+                        <p class="com">조이병원<br>페이스북 바로가기</p>
+                    </a></li>
+                <li class="col4"><a href="http://www.youtube.com/" class="item3">
+                        <p class="com">조이병원<br>유튜브 바로가기</p>
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="page" id="page5">
+        <div class="wrap">
+            <ul>
+                <li class="col4 item1">
+                    <h2 class="itemTitle">조이병원</h2>
+                    <h1 class="telTxt">02-990-3001</h1>
+                    <p class="itemData">서울특별시 도봉구 쌍문1동 507-1</p>
+                     <p class="itemData">전화 : 02-990-3001<br>팩스 02-906-1231</p>
+                </li>
+                <li class="col4 item2">
+                    <h2 class="itemTitle">진료시간</h2>
+                    <p class="itemData">
+                        평일 : 오전 9시 ~ 오후 6시<br>
+                        (물리치료 접수는 4시 30분까지)<br>
+                        토요일 : 오전 9시 ~ 오후 1시 <br>
+                        점심시간 : 오후12시30분 ~ 오후1시 30분<br>
+                        일요일 및 공휴일 : 휴진
+                                                
+                    </p>
+                </li>
+              <li class="col4 item3">
+                    <h2 class="itemTitle">찾아오시는 길</h2>
+                    <div id="mapFrame">
+                           <div id="map_canvas" style="width:360px; height:180px"></div>                            
+                        </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</main>
+<footer id="ft">
+    <div class="wrap">
+        <p class="copyright">  ⓒ 2019 조이병원. ALL RIGHT RESERVED. SITE BY K.</p>
+        <div class="ftLogo"></div>
+    </div>
+</footer>
+<input type="checkbox" id="ck">
+<div id="popFrm">
+   <label for="ck" class="closeBtn">닫기</label>
+    <div class="popBox">
+        <ul class="item1">
+            <li><h2><a href="menu01.html">병원소개</a></h2></li>
+            <li><a href="menu01.html#page1">인사말</a></li>
+            <li><a href="menu01.html#page2">의료진</a></li>
+            <li><a href="menu01.html#page3">의료장비</a></li>
+            <li><a href="menu01.html#page4">병원둘러보기</a></li>
+            <li><a href="menu01.html#page5">오시는길</a></li>
+        </ul>
+        <ul class="item2">
+            <li><h2><a href="menu02.html">재활안내</a></h2></li>
+            <li><a href="menu02.html#page1">운동치료</a></li>
+            <li><a href="menu02.html#page2">작업치료</a></li>
+            <li><a href="menu02.html#page3">연하장애치료</a></li>
+            <li><a href="menu02.html#page4">장기요양</a></li>
+            <li><a href="menu02.html#page5">언어치료</a></li>
+            <li><a href="menu02.html#page6">인지치료</a></li>
+        </ul>
+        <ul class="item3">
+            <li><h2><a href="menu03.html">진료안내</a></h2></li>
+            <li><a href="menu03.html#page1">재활의학과</a></li>
+            <li><a href="menu03.html#page2">이비인후과</a></li>
+            <li><a href="menu03.html#page3">소아청소년과</a></li>
+            <li><a href="menu03.html#page4">신경과</a></li>
+        </ul>
+        <ul class="item4">
+            <li><h2><a href="menu04.html">입원안내</a></h2></li>
+            <li><a href="menu04.html#page1">입원상담</a></li>
+            <li><a href="menu04.html#page2">입/퇴원안내</a></li>
+            <li><a href="menu04.html#page3">전화번호</a></li>
+            <li><a href="menu04.html#page4">증명서발급</a></li>
+        </ul>
+        <ul class="item5">
+            <li><h2><a href="menu05.html">고객지원</a></h2></li>
+            <li><a href="menu05.html#page1">사회사업 공지사항</a></li>
+            <li><a href="menu05.html#page2">조이스토리</a></li>
+            <li><a href="menu05.html#page3">전문의상담</a></li>
+        </ul>
+    </div>
+</div>
+<aside id="quick">
+    <div class="qWrap">
+        <ul class="top">
+           <li>
+           <a href="" class="qlogo">
+           </a>
+           </li>
+            <li>
+                <a href="joinForm.html" class="hv">회원가입</a>
+            </li>
+            <li>
+                <a href="loginForm.html" class="hv">로그인</a>
+            </li>
+            <li>
+                <a href="menu04.html#page4" class="hv">비급여안내</a>
+            </li>
+            <li>
+                <a href="menu01.html#page5" class="hv">오시는길</a>
+            </li>
+        </ul>
+        <ul class="bottom">
+            <li><a href="menu02.html#page1" class="green">운동치료</a></li>
+            <li><a href="menu02.html#page5" class="cyan">언어치료</a></li>
+            <li><a href="#" class="toTop">위로</a></li>
+        </ul>
+    </div>
+</aside>
+
+
+</body>
+
+</html>
